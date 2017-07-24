@@ -29,6 +29,10 @@ void Deck::shuffle() {
         swapCards(card, m_deck[getRandomNumber(0, 51)]);
 }
 
+const Card& Deck::dealCard() {
+    return m_deck[nextCard++];
+}
+
 void Deck::print() const {
     for (const Card &card: m_deck) {
         card.print();
