@@ -1,3 +1,5 @@
+#include <iostream>
+
 class Card {
 public:
     enum class Rank {
@@ -31,7 +33,7 @@ public:
     Card(Rank rank = Rank::TWO, Suit suit = Suit::CLUBS):
         m_rank {rank}, m_suit {suit} {}
 
-    int getRankValue() const {
+    int getCardValue() const {
         switch (m_rank) {
         case Rank::TWO: return 2;
         case Rank::THREE: return 3;
@@ -77,5 +79,9 @@ public:
         case Suit::SPADES: return 'S';
         default: return '?';
         }
+    }
+
+    void printCard() const {
+        std::cout << getRankName() << getSuitName();
     }
 };
