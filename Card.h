@@ -37,7 +37,7 @@ public:
     int getCardValue() const;
     char getRankName() const;
     char getSuitName() const;
-    void printCard() const; 
+    void print() const; 
 };
 
 #endif

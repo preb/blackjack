@@ -49,7 +49,7 @@ char Card::getSuitName() const {
     }
 }
 
-void Card::printCard() const {
+void Card::print() const {
     std::cout << getRankName() << getSuitName();
 }
 
