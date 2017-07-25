@@ -2,6 +2,10 @@
 #include "Card.h"
 #include "Hand.h"
 
+Hand::Player Hand::getPlayer() const {
+    return m_player;
+}
+
 void Hand::draw(const Card &card) {
     m_hand.push_back(card);
 }
@@ -21,7 +25,7 @@ int Hand::handValue() const {
     return sum;
 }
 
-void Hand::print() {
+void Hand::print() const {
     for (const Card &card: m_hand) {
         card.print();
         std::cout << ' ';

@@ -5,28 +5,35 @@
 enum class GameResults {
     PLAYER_WIN,
     DEALER_WIN,
-    TIE,
-    MAX
+    TIE
 };
+
+void print(const Hand &hand) {
+    std::string player;
+    if (hand.getPlayer() == Hand::Player::PLAYER)
+        player = "Player";
+    else
+        player = "Dealer";
+
+    std::cout << '\n' << player << " hand: ";
+    hand.print();
+    std::cout << player << " hand value: " << hand.handValue() << '\n';
+}
 
 GameResults play() {
     Deck deck;
     deck.shuffle();
     Hand dealer(Hand::Player::DEALER), player(Hand::Player::PLAYER);
 
-    std::cout << "Dealer hand:\n";
     dealer.draw(deck.dealCard());
-    dealer.print();
-    std::cout << "Dealer hand value: " << dealer.handValue() << '\n';
+    print(dealer);
     dealer.draw(deck.dealCard());
 
-    std::cout << "Player hand:\n";
     player.draw(deck.dealCard());
     player.draw(deck.dealCard());
-    player.print();
-    std::cout << "Player hand value: " << player.handValue() << '\n';
+    print(player);
 
-    std::cout << "Player turn\n";
+    std::cout << "\nPlayer turn\n";
     while(true) {
         std::cout << "Do you want to hit (y/n)? ";
         char hit;
@@ -41,17 +48,17 @@ GameResults play() {
         else if (hit == 'n')
             break;
         player.draw(deck.dealCard());
-        player.print();
+        print(player);
         if (player.handValue() > 21)
             return GameResults::DEALER_WIN;
     }
 
-    std::cout << "Dealer turn\n";
+    std::cout << "\nDealer turn\n";
     while(true) {
         if (dealer.handValue() >= 17)
             break;
         dealer.draw(deck.dealCard());
-        dealer.print();
+        print(dealer);
         if (dealer.handValue() > 21)
             return GameResults::PLAYER_WIN;
     }

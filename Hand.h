@@ -15,9 +15,10 @@ private:
     std::vector<Card> m_hand;
 public:
     Hand(Player player = Player::PLAYER): m_player {player} {}
+    Hand::Player getPlayer() const;
     void draw(const Card&);
     int handValue() const;
-    void print();
+    void print() const;
 };
 
 #endif
