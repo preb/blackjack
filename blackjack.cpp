@@ -77,10 +77,10 @@ GameResults play() {
 int main() {
     GameResults winner {play()};
     if (winner == GameResults::PLAYER_WIN)
-        std::cout << "Player wins!\n";
+        std::cout << "\nPlayer wins!\n";
     else if (winner == GameResults::DEALER_WIN)
-        std::cout << "Dealer wins!\n";
+        std::cout << "\nDealer wins!\n";
     else
-        std::cout << "Tie!\n";
+        std::cout << "\nTie!\n";
     return 0;
 }
