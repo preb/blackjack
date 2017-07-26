@@ -1,6 +1,7 @@
 #ifndef HAND_H
 #define HAND_H
 
+#include <iostream>
 #include <vector>
 #include "Card.h"
 
@@ -18,7 +19,7 @@ public:
     Hand::Player getPlayer() const;
     void draw(const Card&);
     int handValue() const;
-    void print() const;
+    friend std::ostream& operator<<(std::ostream&, const Hand&);
 };
 
 #endif
