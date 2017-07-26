@@ -39,8 +39,9 @@ public:
     int getCardValue() const;
     char getRankName() const;
     char getSuitName() const;
-    friend std::ostream& operator<<(std::ostream&, const Card&);
 };
+
+std::ostream& operator<<(std::ostream&, const Card&);
 
 #endif
 
