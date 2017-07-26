@@ -15,8 +15,7 @@ void print(const Hand &hand) {
     else
         player = "Dealer";
 
-    std::cout << '\n' << player << " hand: ";
-    hand.print();
+    std::cout << '\n' << player << " hand: " << hand << '\n';
     std::cout << player << " hand value: " << hand.handValue() << '\n';
 }
 

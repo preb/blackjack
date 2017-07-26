@@ -15,7 +15,6 @@ public:
     Deck();
     void shuffle();
     const Card& dealCard();
-    friend std::ostream& operator<<(std::ostream&, const Deck&);
 };
 
 #endif
