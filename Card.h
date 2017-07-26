@@ -1,6 +1,8 @@
 #ifndef CARD_H
 #define CARD_H
 
+#include <iostream>
+
 class Card {
 public:
     enum class Rank {
@@ -37,7 +39,7 @@ public:
     int getCardValue() const;
     char getRankName() const;
     char getSuitName() const;
-    void print() const; 
+    friend std::ostream& operator<<(std::ostream&, const Card&);
 };
 
 #endif

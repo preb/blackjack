@@ -49,7 +49,7 @@ char Card::getSuitName() const {
     }
 }
 
-void Card::print() const {
-    std::cout << getRankName() << getSuitName();
+std::ostream& operator<<(std::ostream &out, const Card &card) {
+    out << card.getRankName() << card.getSuitName();
+    return out;
 }
-
