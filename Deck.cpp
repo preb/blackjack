@@ -33,10 +33,9 @@ const Card& Deck::dealCard() {
     return m_deck[nextCard++];
 }
 
-void Deck::print() const {
-    for (const Card &card: m_deck) {
-        card.print();
-        std::cout << ' ';
-    }
+std::ostream& operator<<(std::ostream &out, const Deck &deck) {
+    for (const Card &card: deck.m_deck)
+        std::cout << card << ' ';
     std::cout << '\n';
+    return out;
 }

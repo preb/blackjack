@@ -1,6 +1,7 @@
 #ifndef DECK_H
 #define DECK_H
 
+#include <iostream>
 #include <array>
 #include "Card.h"
 
@@ -14,7 +15,7 @@ public:
     Deck();
     void shuffle();
     const Card& dealCard();
-    void print() const;
+    friend std::ostream& operator<<(std::ostream&, const Deck&);
 };
 
 #endif
