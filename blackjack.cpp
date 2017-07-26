@@ -8,29 +8,18 @@ enum class GameResults {
     TIE
 };
 
-void print(const Hand &hand) {
-    std::string player;
-    if (hand.getPlayer() == Hand::Player::PLAYER)
-        player = "Player";
-    else
-        player = "Dealer";
-
-    std::cout << '\n' << player << " hand: " << hand << '\n';
-    std::cout << player << " hand value: " << hand.handValue() << '\n';
-}
-
 GameResults play() {
     Deck deck;
     deck.shuffle();
     Hand dealer(Hand::Player::DEALER), player(Hand::Player::PLAYER);
 
     dealer.draw(deck.dealCard());
-    print(dealer);
+    std::cout << dealer;
     dealer.draw(deck.dealCard());
 
     player.draw(deck.dealCard());
     player.draw(deck.dealCard());
-    print(player);
+    std::cout << player;
 
     std::cout << "\nPlayer turn\n";
     while(true) {
@@ -47,17 +36,17 @@ GameResults play() {
         else if (hit == 'n')
             break;
         player.draw(deck.dealCard());
-        print(player);
+        std::cout << player;
         if (player.handValue() > 21)
             return GameResults::DEALER_WIN;
     }
 
-    std::cout << "\nDealer turn\n";
+    std::cout << "\nDealer turn\n" << dealer;
     while(true) {
         if (dealer.handValue() >= 17)
             break;
         dealer.draw(deck.dealCard());
-        print(dealer);
+        std::cout << dealer;
         if (dealer.handValue() > 21)
             return GameResults::PLAYER_WIN;
     }

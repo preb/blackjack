@@ -26,7 +26,14 @@ int Hand::handValue() const {
 }
 
 std::ostream& operator<<(std::ostream &out, const Hand &hand) {
+    std::string player;
+    if (hand.getPlayer() == Hand::Player::PLAYER)
+        player = "Player";
+    else
+        player = "Dealer";
+    out << '\n' << player << " hand: ";
     for (const Card &card: hand.m_hand)
         out << card << ' ';
+    out << '\n' << player << " hand value: " << hand.handValue() << '\n';
     return out;
 }
